@@ -1,0 +1,172 @@
+{
+    "version": "1.0",
+    "title": "Every Mother",
+    "logline": "One mother's ordinary day shows the quiet strength of mothers across our country.",
+    "audience": "Family and friends watching on a phone (WhatsApp, Facebook, TikTok)",
+    "intent": "Viewers feel respect and gratitude for the unseen daily work of mothers.",
+    "language": "en",
+    "global_seed": 42,
+    "aspect_ratios": ["9:16", "16:9"],
+    "style_block": "hand-painted illustration, soft painterly brush texture, gentle film grain, warm color palette, cinematic composition, subject centered in frame, no text, no letters",
+    "character": {
+      "id": "mother",
+      "description": "Ethiopian woman in her 40s, dark brown skin, kind tired eyes, a white cotton netela shawl over her hair, a simple modest long dress, strong gentle hands",
+      "reference_image": "outputs/reference/mother_sheet.png"
+    },
+    "narration": {
+      "tts_model": "gemini-tts",
+      "voice": "default-warm-female",
+      "style_instruction": "Speak calmly, warmly and unhurried, like a grown child remembering their mother.",
+      "subtitle_language": "en"
+    },
+    "music": {
+      "caption": "gentle acoustic instrumental, soft piano and krar-like plucked strings, warm, slow, nostalgic, light texture, no strong lead melody",
+      "instrumental": true,
+      "bpm": 70,
+      "key": "D minor",
+      "duration_sec": 60,
+      "candidates": 3,
+      "cues": [
+        { "from_shot": 1, "to_shot": 3, "role": "quiet and hopeful, dawn" },
+        { "from_shot": 4, "to_shot": 6, "role": "builds gently, her calling and her burden" },
+        { "from_shot": 7, "to_shot": 9, "role": "tender, sparse, tired but steady" },
+        { "from_shot": 10, "to_shot": 10, "role": "theme returns, resolves softly" }
+      ]
+    },
+    "shots": [
+      {
+        "id": "s01",
+        "duration_sec": 9,
+        "shot_size": "medium close-up",
+        "time_label": "5:00 AM",
+        "reason": "Faith comes first. Opens the hands motif.",
+        "keyframe_prompt": "The mother kneeling by a window in a dark room, her folded hands in front of her, first blue light of dawn on her face",
+        "motion_prompt": "very slow push-in, soft light slowly brightening",
+        "camera": "push_in",
+        "narration": "My mother wakes before the sun. Before anyone needs anything from her, she kneels and gives her day to God.",
+        "sfx": "quiet room tone, distant rooster"
+      },
+      {
+        "id": "s02",
+        "duration_sec": 7,
+        "shot_size": "medium",
+        "time_label": "5:45 AM",
+        "reason": "Care that goes unseen: breakfast made while the family sleeps.",
+        "keyframe_prompt": "The mother in a simple Ethiopian kitchen preparing breakfast, bread and a clay coffee pot (jebena) with steam rising, soft morning light",
+        "motion_prompt": "steam rises gently, camera static",
+        "camera": "static",
+        "narration": "Then the kitchen comes alive. Breakfast for all of us, made while we are still asleep.",
+        "sfx": "coffee pouring, pan sizzling"
+      },
+      {
+        "id": "s03",
+        "duration_sec": 7,
+        "shot_size": "close-up",
+        "time_label": "7:00 AM",
+        "reason": "A close-up of her hands carries the emotion. Hands motif.",
+        "keyframe_prompt": "Close-up of the mother's hands carefully wrapping injera with shiro in a cloth for a lunch, warm kitchen light",
+        "motion_prompt": "slow pan across her hands as they fold the cloth",
+        "camera": "pan_right",
+        "narration": "She wraps my father's lunch the way she does everything: carefully, with her whole heart.",
+        "sfx": "cloth rustle"
+      },
+      {
+        "id": "s04",
+        "duration_sec": 5,
+        "shot_size": "wide",
+        "time_label": "8:30 AM",
+        "reason": "Changes the place and moves the story outdoors.",
+        "keyframe_prompt": "The mother seen from behind walking down an empty quiet Ethiopian neighborhood street toward a small church, soft morning mist",
+        "motion_prompt": "slow tracking follow, gentle camera drift",
+        "camera": "zoom_out",
+        "narration": "Then she walks to church, while the street is still yawning.",
+        "sfx": "church bell far away, footsteps"
+      },
+      {
+        "id": "s05",
+        "duration_sec": 10,
+        "shot_size": "medium",
+        "time_label": "10:00 AM",
+        "reason": "Shows her calling: she preaches, but mostly she listens.",
+        "keyframe_prompt": "Inside a small church room, the mother gently holding the hand of an older woman who is sad, both seated, warm window light",
+        "motion_prompt": "very slow push-in, soft dust floating in light",
+        "camera": "push_in",
+        "narration": "She is an evangelist. She preaches, but mostly she listens: to the tired, to the grieving, to the ones nobody else has time for.",
+        "sfx": "soft room ambience"
+      },
+      {
+        "id": "s06",
+        "duration_sec": 7,
+        "shot_size": "wide",
+        "time_label": "5:00 PM",
+        "reason": "The emotional centre: she carries burdens home.",
+        "keyframe_prompt": "The mother walking home slowly in golden evening light, her shoulders heavy, long shadow behind her, quiet street",
+        "motion_prompt": "slow pan following her, warm light",
+        "camera": "pan_left",
+        "narration": "All day she carries other people's burdens. Then she carries them home.",
+        "sfx": "wind, slow footsteps"
+      },
+      {
+        "id": "s07",
+        "duration_sec": 9,
+        "shot_size": "medium",
+        "time_label": "6:30 PM",
+        "reason": "Shows resilience: no rest, straight back to work.",
+        "keyframe_prompt": "The mother in her home kitchen in simple house clothes, tying an apron, stirring a pot of shiro on the stove, evening light",
+        "motion_prompt": "slow push-in, steam rising from the pot",
+        "camera": "push_in",
+        "narration": "She walks in, changes her clothes, and goes straight back to the kitchen. Nobody asks her to. Nobody has to.",
+        "sfx": "pot simmering, spoon on pot"
+      },
+      {
+        "id": "s08",
+        "duration_sec": 9,
+        "shot_size": "wide",
+        "time_label": "8:00 PM",
+        "reason": "The edge: viewers see themselves in the family who never asks.",
+        "keyframe_prompt": "A family of four eating dinner together at a table, injera with shiro, warm lamp light, father, a teenage son and daughter laughing, the mother standing slightly behind serving",
+        "motion_prompt": "static camera, subtle warm light flicker",
+        "camera": "static",
+        "narration": "Dinner for her husband, her son, her daughter. We eat and laugh, and never ask how tired she is.",
+        "sfx": "dinner chatter, soft laughter"
+      },
+      {
+        "id": "s09",
+        "duration_sec": 8,
+        "shot_size": "close-up",
+        "time_label": "9:15 PM",
+        "reason": "Contrast: everyone rests, she does not. Hands motif.",
+        "keyframe_prompt": "Close-up of the mother's hands washing dishes in a sink at night, the empty kitchen behind her, a single warm lamp",
+        "motion_prompt": "slow push-in, water ripples",
+        "camera": "push_in",
+        "narration": "When we are done, she washes every dish and wipes every corner, until the kitchen is quiet again.",
+        "sfx": "water running, dishes clinking"
+      },
+      {
+        "id": "s10",
+        "duration_sec": 11,
+        "shot_size": "medium close-up",
+        "time_label": "10:30 PM",
+        "reason": "Closes the hands motif and widens the story to every mother.",
+        "keyframe_prompt": "The mother's folded hands in prayer beside a bed, soft lamp light, the family silhouettes praying behind her, calm and peaceful",
+        "motion_prompt": "very slow pull-back, lamp light dims",
+        "camera": "zoom_out",
+        "narration": "Then we pray together. And only then, she sleeps. My mother is one woman. But she is every mother in this country.",
+        "sfx": "quiet night room tone"
+      }
+    ],
+    "end_card": {
+      "duration_sec": 3,
+      "lines": ["For every mother.", "Made with AI"]
+    },
+    "export": {
+      "fps": 24,
+      "loudness_lufs": -14,
+      "true_peak_db": -1,
+      "subtitles": { "burn_in": true, "max_chars_per_line": 40, "max_lines": 2 },
+      "targets": [
+        { "aspect": "9:16", "size": "1080x1920", "file": "outputs/final/every_mother_vertical.mp4" },
+        { "aspect": "16:9", "size": "1920x1080", "file": "outputs/final/every_mother_horizontal.mp4" }
+      ]
+    }
+  }
