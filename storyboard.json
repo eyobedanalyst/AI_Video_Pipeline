@@ -6,7 +6,10 @@
     "intent": "Viewers feel respect and gratitude for the unseen daily work of mothers.",
     "language": "en",
     "global_seed": 42,
-    "aspect_ratios": ["9:16", "16:9"],
+    "aspect_ratios": [
+      "9:16",
+      "16:9"
+    ],
     "style_block": "hand-painted illustration, soft painterly brush texture, gentle film grain, warm color palette, cinematic composition, subject centered in frame, no text, no letters",
     "character": {
       "id": "mother",
@@ -14,10 +17,13 @@
       "reference_image": "outputs/reference/mother_sheet.png"
     },
     "narration": {
-      "tts_model": "gemini-tts",
-      "voice": "default-warm-female",
-      "style_instruction": "Speak calmly, warmly and unhurried, like a grown child remembering their mother.",
-      "subtitle_language": "en"
+      "tts_model": "set in .env as TTS_MODEL",
+      "voice": "Kore",
+      "style_instruction": "Say calmly, warmly and slowly, like a grown child remembering their mother",
+      "subtitle_language": "en",
+      "provider": "edge",
+      "edge_voice": "en-US-AriaNeural",
+      "edge_rate": "-8%"
     },
     "music": {
       "caption": "gentle acoustic instrumental, soft piano and krar-like plucked strings, warm, slow, nostalgic, light texture, no strong lead melody",
@@ -27,23 +33,39 @@
       "duration_sec": 60,
       "candidates": 3,
       "cues": [
-        { "from_shot": 1, "to_shot": 3, "role": "quiet and hopeful, dawn" },
-        { "from_shot": 4, "to_shot": 6, "role": "builds gently, her calling and her burden" },
-        { "from_shot": 7, "to_shot": 9, "role": "tender, sparse, tired but steady" },
-        { "from_shot": 10, "to_shot": 10, "role": "theme returns, resolves softly" }
+        {
+          "from_shot": 1,
+          "to_shot": 3,
+          "role": "quiet and hopeful, dawn"
+        },
+        {
+          "from_shot": 4,
+          "to_shot": 6,
+          "role": "builds gently, her calling and her burden"
+        },
+        {
+          "from_shot": 7,
+          "to_shot": 9,
+          "role": "tender, sparse, tired but steady"
+        },
+        {
+          "from_shot": 10,
+          "to_shot": 10,
+          "role": "theme returns, resolves softly"
+        }
       ]
     },
     "shots": [
       {
         "id": "s01",
-        "duration_sec": 9,
+        "duration_sec": 7,
         "shot_size": "medium close-up",
         "time_label": "5:00 AM",
         "reason": "Faith comes first. Opens the hands motif.",
         "keyframe_prompt": "The mother kneeling by a window in a dark room, her folded hands in front of her, first blue light of dawn on her face",
         "motion_prompt": "very slow push-in, soft light slowly brightening",
         "camera": "push_in",
-        "narration": "My mother wakes before the sun. Before anyone needs anything from her, she kneels and gives her day to God.",
+        "narration": "My mother wakes before the sun, and kneels to give her day to God.",
         "sfx": "quiet room tone, distant rooster"
       },
       {
@@ -84,26 +106,26 @@
       },
       {
         "id": "s05",
-        "duration_sec": 10,
+        "duration_sec": 7,
         "shot_size": "medium",
         "time_label": "10:00 AM",
         "reason": "Shows her calling: she preaches, but mostly she listens.",
         "keyframe_prompt": "Inside a small church room, the mother gently holding the hand of an older woman who is sad, both seated, warm window light",
         "motion_prompt": "very slow push-in, soft dust floating in light",
         "camera": "push_in",
-        "narration": "She is an evangelist. She preaches, but mostly she listens: to the tired, to the grieving, to the ones nobody else has time for.",
+        "narration": "She is an evangelist. She preaches, but mostly she listens, to the ones nobody else has time for.",
         "sfx": "soft room ambience"
       },
       {
         "id": "s06",
-        "duration_sec": 7,
+        "duration_sec": 8,
         "shot_size": "wide",
         "time_label": "5:00 PM",
-        "reason": "The emotional centre: she carries burdens home.",
+        "reason": "The emotional centre, and the clear transition from church to home (test 1 feedback).",
         "keyframe_prompt": "The mother walking home slowly in golden evening light, her shoulders heavy, long shadow behind her, quiet street",
         "motion_prompt": "slow pan following her, warm light",
         "camera": "pan_left",
-        "narration": "All day she carries other people's burdens. Then she carries them home.",
+        "narration": "All day she carries other people's burdens. Then, as evening falls, she carries them home.",
         "sfx": "wind, slow footsteps"
       },
       {
@@ -144,7 +166,7 @@
       },
       {
         "id": "s10",
-        "duration_sec": 11,
+        "duration_sec": 14,
         "shot_size": "medium close-up",
         "time_label": "10:30 PM",
         "reason": "Closes the hands motif and widens the story to every mother.",
@@ -156,17 +178,32 @@
       }
     ],
     "end_card": {
-      "duration_sec": 3,
-      "lines": ["For every mother.", "Made with AI"]
+      "duration_sec": 4,
+      "lines": [
+        "For every mother.",
+        "Made with AI"
+      ]
     },
     "export": {
       "fps": 24,
       "loudness_lufs": -14,
       "true_peak_db": -1,
-      "subtitles": { "burn_in": true, "max_chars_per_line": 40, "max_lines": 2 },
+      "subtitles": {
+        "burn_in": true,
+        "max_chars_per_line": 40,
+        "max_lines": 2
+      },
       "targets": [
-        { "aspect": "9:16", "size": "1080x1920", "file": "outputs/final/every_mother_vertical.mp4" },
-        { "aspect": "16:9", "size": "1920x1080", "file": "outputs/final/every_mother_horizontal.mp4" }
+        {
+          "aspect": "9:16",
+          "size": "1080x1920",
+          "file": "outputs/final/every_mother_vertical.mp4"
+        },
+        {
+          "aspect": "16:9",
+          "size": "1920x1080",
+          "file": "outputs/final/every_mother_horizontal.mp4"
+        }
       ]
     }
   }
