@@ -46,3 +46,9 @@ Each entry: what broke, what I tried, what fixed it or what I did instead.
 - **Broke:** pushing a 19.8 MB commit (two 90-second WAV scores) disconnected: `RPC failed; HTTP 408`.
 - **Cause:** large binary files on a slow connection.
 - **Fix:** stopped committing generated media that the pipeline can recreate (`outputs/music/*.wav`, `outputs/final/`, `outputs/clips/`, `outputs/tmp/`), added them to `.gitignore`, and hosted the final MP4s outside the repo.
+
+## F10. Clean-clone test: `make` missing and schema too strict (26 Nov)
+- **Broke:** in a fresh clone on Windows, `make film` gave `make: command not found`. Then validation stopped: `shots/9/duration_sec -> 14 is greater than the maximum of 12`.
+- **Cause:** Git Bash on Windows has no `make`. And I had lengthened the last shot to 14 s after user test 1 without updating the schema, so the validator did its job and rejected my own storyboard.
+- **Fix:** added `run.py`, a cross-platform runner that executes the five stages in order, and made it the documented command; raised the schema maximum shot length from 12 s to 20 s.
+- **Lesson:** a clean clone finds problems your own folder hides.

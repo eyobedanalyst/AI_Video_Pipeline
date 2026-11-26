@@ -9,16 +9,14 @@ All characters are AI-generated illustrations. See `ETHICS.md`.
 ## Run it (one command)
 ```bash
 git clone <this repo> && cd AI_Video_Pipeline
-pip install -r requirements.txt          # needs Python 3.10+ and FFmpeg on PATH
+pip install -r requirements.txt          # Python 3.10+ and FFmpeg on PATH
 cp .env.example .env                      # then fill in the two Cloudflare values
-make film                                 # validate -> keyframes -> narration -> music -> assemble
+python run.py                             # validate -> keyframes -> narration -> music -> assemble
 ```
-Result: `outputs/final/every_mother_vertical.mp4` and `outputs/final/every_mother_horizontal.mp4`.
+Works on Windows, macOS and Linux. `make film` does the same where `make` is installed.
+Options: `python run.py --draft` (fast, half resolution) and `python run.py --skip-keyframes` (reuse pictures).
 
-Windows without `make`: run the four stages by hand
-```bash
-python pipeline/validate.py && python pipeline/keyframes.py && python pipeline/narration.py && python pipeline/music.py && python pipeline/assemble.py
-```
+Result: `outputs/final/every_mother_vertical.mp4` and `outputs/final/every_mother_horizontal.mp4`.
 
 ### Keys needed
 | Key | For | Where |
