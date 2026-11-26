@@ -1,1 +1,11 @@
 .env
+__pycache__/
+*.pyc
+.venv/
+
+# generated media (recreated by `make film`; final films are hosted outside the repo)
+outputs/final/
+outputs/clips/
+outputs/tmp/
+outputs/music/*.wav
+outputs/keyframes/*_keep.jpg

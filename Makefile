@@ -9,12 +9,15 @@ narration: validate
 keyframes: validate
 	$(PY) pipeline/keyframes.py
 
+music:
+	$(PY) pipeline/music.py
+
 radio: narration
 	$(PY) pipeline/radio_cut.py
 
-draft: keyframes narration
+draft: keyframes narration music
 	$(PY) pipeline/assemble.py --draft
 
 # One command for the whole film: make film
-film: validate keyframes narration
+film: validate keyframes narration music
 	$(PY) pipeline/assemble.py

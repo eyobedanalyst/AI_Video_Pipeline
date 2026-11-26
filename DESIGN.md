@@ -30,5 +30,4 @@ All three understood the intended feeling, and each picked a different favourite
 ### Limits of this test
 All three listeners are close to the story (husband, daughter, friend). Their reaction may be kinder than a stranger's. For test 2 I will include at least one person outside the family.
 
-## User test 2: near-final cut
-(to be filled in after the full film is assembled)
+Test 2 repeated test 1's three complaints (slow opening, long church part, unclear transition). I made real changes: s01 cut from 14 to 10 words and 7s to 5s, s05 reduced to one short sentence, and s06 now states "when the last person has gone, she walks home". I kept the family dinner and the ending, because all three viewers named them as favourites.

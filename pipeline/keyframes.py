@@ -28,13 +28,15 @@ def build_prompt(shot):
     return f"{shot['keyframe_prompt']}. The woman: {char}. Style: {style}."[:2000]
 
 
-def generate(prompt, seed, use_seed=True):
+def generate(prompt, seed, mode):
+    """mode: 'int' (seed as number), 'str' (seed as text) or 'none' (no seed)."""
     payload = {"prompt": prompt, "steps": STEPS}
-    if use_seed:
+    if mode == "int":
         payload["seed"] = seed
+    elif mode == "str":
+        payload["seed"] = str(seed)
     r = requests.post(URL, headers={"Authorization": f"Bearer {token}"}, json=payload, timeout=120)
     if not r.ok:
-        # Show Cloudflare's own explanation instead of just "400 Bad Request"
         raise RuntimeError(f"HTTP {r.status_code}: {r.text[:400]}")
     body = r.json()
     result = body.get("result", body)
@@ -42,13 +44,17 @@ def generate(prompt, seed, use_seed=True):
 
 
 def generate_with_fallback(prompt, seed):
-    try:
-        return generate(prompt, seed, use_seed=True)
-    except RuntimeError as e:
-        if "seed" in str(e).lower():
-            print("  seed not accepted by this model; retrying without seed")
-            return generate(prompt, seed, use_seed=False)
-        raise
+    """Try the seed as a number, then as text, then without it. Returns (image_bytes, how_seed_was_applied)."""
+    last = None
+    for mode in ("int", "str", "none"):
+        try:
+            return generate(prompt, seed, mode), mode
+        except RuntimeError as e:
+            last = e
+            if "seed" not in str(e).lower() and mode == "int":
+                raise
+            print(f"  seed as {mode} rejected: {str(e)[:300]}")
+    raise last
 
 
 for i, shot in enumerate(board["shots"]):
@@ -63,7 +69,7 @@ for i, shot in enumerate(board["shots"]):
         continue
     t = time.time()
     try:
-        data = retry(lambda: generate_with_fallback(prompt, seed))
+        data, seed_mode = retry(lambda: generate_with_fallback(prompt, seed))
     except Exception as e:
         log_run("keyframes", MODEL, {"seed": seed, "steps": STEPS}, time.time() - t, "error",
                 shot=shot["id"], error=str(e)[:300])
@@ -72,5 +78,5 @@ for i, shot in enumerate(board["shots"]):
     img.write_bytes(data)
     hfile.write_text(h)
     lat = time.time() - t
-    log_run("keyframes", MODEL, {"seed": seed, "steps": STEPS, "prompt_chars": len(prompt)}, lat, "ok", shot=shot["id"])
-    print(f"{shot['id']}: generated in {lat:.1f}s (seed {seed})")
+    log_run("keyframes", MODEL, {"seed": seed, "seed_applied": seed_mode, "steps": STEPS, "prompt_chars": len(prompt)}, lat, "ok", shot=shot["id"])
+    print(f"{shot['id']}: generated in {lat:.1f}s (seed {seed}, applied as: {seed_mode})")
